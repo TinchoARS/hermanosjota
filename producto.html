@@ -3,12 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Producto — Hermanos Jota</title>
+    <title>Detalle — Hermanos Jota</title>
     <meta
       name="description"
-      content="Detalle del producto seleccionado en Hermanos Jota. Conocé los materiales, la fabricación y el precio."
+      content="Detalle de producto Hermanos Jota. Medidas, materiales y acabado de cada pieza."
     />
-    <link rel="icon" href="logo.svg" />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
@@ -21,16 +20,20 @@
       <nav aria-label="Navegación principal">
         <ul>
           <li><a href="index.html">Inicio</a></li>
-          <li><a href="productos.html" aria-current="page">Catálogo</a></li>
+          <li><a href="productos.html">Catálogo</a></li>
           <li><a href="contacto.html">Contacto</a></li>
+          <li>
+            <button id="abrir-carrito" class="btn" type="button">Carrito (0)</button>
+          </li>
         </ul>
       </nav>
     </header>
 
     <main>
-      <div id="producto-detalle">
-        <p>Cargando producto...</p>
-      </div>
+      <section id="detalle" aria-labelledby="titulo-detalle">
+        <h1 id="titulo-detalle">Detalle del producto</h1>
+        <div id="detalle-producto"></div>
+      </section>
     </main>
 
     <footer>
