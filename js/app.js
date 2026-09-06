@@ -73,6 +73,7 @@ function obtenerProductos() {
   });
 }
 
+let listaCompleta = [];
 const contenedor = document.getElementById("contenedor-destacados");
 if (contenedor) {
   const esCatalogo = window.location.pathname.includes("productos");
@@ -111,7 +112,19 @@ if (contenedor) {
   (async function iniciar() {
     contenedor.innerHTML = "<p>Cargando catálogo...</p>";
     const lista = await obtenerProductos();
+    listaCompleta = lista;
     const aMostrar = esCatalogo ? lista : lista.slice(0, 4);
     renderizarProductos(aMostrar);
   })();
+
+  const buscador = document.getElementById("buscador-productos");
+  if (buscador) {
+    buscador.addEventListener("input", () => {
+      const texto = buscador.value.trim().toLowerCase();
+      const filtrados = listaCompleta.filter((producto) =>
+        producto.nombre.toLowerCase().includes(texto)
+      );
+      renderizarProductos(filtrados);
+    });
+  }
 }
