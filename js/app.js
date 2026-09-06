@@ -305,8 +305,10 @@ if (contenedor) {
       .map(
         (producto) => `
         <article class="card">
-          <img src="${encodeURI(producto.imagen)}" alt="${producto.nombre}" />
-          <h3>${producto.nombre}</h3>
+          <a href="producto.html?id=${producto.id}" class="card-link" aria-label="Ver detalles de ${producto.nombre}">
+            <img src="${encodeURI(producto.imagen)}" alt="${producto.nombre}" />
+            <h3>${producto.nombre}</h3>
+          </a>
           <p>$${producto.precio.toLocaleString("es-AR")}</p>
           <a
             class="btn btn-secondary"

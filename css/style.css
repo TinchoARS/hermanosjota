@@ -211,14 +211,14 @@ header > a:hover {
 }
 
 .logo {
-  width: 72px;
+  width: 48px;
   height: auto;
   flex-shrink: 0;
 }
 
 @media (min-width: 768px) {
   .logo {
-    width: 120px; /* mínimo digital del manual */
+    width: 80px;
   }
 
   header {
@@ -580,4 +580,92 @@ textarea[aria-invalid="true"] {
 
 form .btn {
   justify-self: start;
+}
+
+/* --------------------------------------------------------------------------
+   14. Tarjeta — enlace
+   -------------------------------------------------------------------------- */
+
+.card-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.card-link:hover {
+  color: inherit;
+}
+
+.card-link img {
+  border-radius: var(--border-radius);
+}
+
+.card-link h3 {
+  color: var(--color-primary);
+}
+
+/* --------------------------------------------------------------------------
+   15. Detalle de producto
+   -------------------------------------------------------------------------- */
+
+.producto-detalle {
+  display: grid;
+  gap: var(--spacing-lg);
+}
+
+@media (min-width: 768px) {
+  .producto-detalle {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    align-items: start;
+  }
+}
+
+.producto-detalle__imagen img {
+  width: 100%;
+  border-radius: var(--border-radius);
+}
+
+.producto-detalle__precio {
+  font-family: var(--font-heading);
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-lg);
+}
+
+.producto-detalle__descripcion,
+.producto-detalle__fabricacion {
+  margin-bottom: var(--spacing-lg);
+}
+
+.producto-detalle__descripcion h2,
+.producto-detalle__fabricacion h2 {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  margin-bottom: var(--spacing-sm);
+}
+
+.producto-detalle__btn {
+  margin-top: var(--spacing-sm);
+}
+
+/* --------------------------------------------------------------------------
+   16. Feedback del carrito
+   -------------------------------------------------------------------------- */
+
+.carrito-feedback {
+  display: none;
+  margin-top: var(--spacing-md);
+  padding: 0.6rem 1rem;
+  border-radius: var(--border-radius);
+  background-color: var(--color-secondary);
+  color: var(--color-text-light);
+  font-size: var(--font-size-caption);
+  font-weight: 500;
+  letter-spacing: var(--letter-caption);
+  text-transform: uppercase;
+}
+
+.carrito-feedback.visible {
+  display: inline-block;
 }
