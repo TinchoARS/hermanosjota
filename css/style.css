@@ -272,20 +272,24 @@ nav[aria-label="Navegación principal"] a[aria-current="page"] {
    -------------------------------------------------------------------------- */
 
 #contenedor-destacados {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-wrap: wrap;
   gap: var(--spacing-lg);
 }
 
+#contenedor-destacados > * {
+  flex: 1 1 100%;
+}
+
 @media (min-width: 640px) {
-  #contenedor-destacados {
-    grid-template-columns: repeat(2, 1fr);
+  #contenedor-destacados > * {
+    flex: 1 1 calc(50% - var(--spacing-lg) / 2);
   }
 }
 
 @media (min-width: 1024px) {
-  #contenedor-destacados {
-    grid-template-columns: repeat(4, 1fr);
+  #contenedor-destacados > * {
+    flex: 1 1 calc(25% - (var(--spacing-lg) * 3 / 4));
   }
 }
 
@@ -495,11 +499,15 @@ footer a {
 
 @media (min-width: 768px) {
   footer {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    flex-wrap: wrap;
     gap: var(--spacing-lg);
     padding: var(--spacing-xl);
-    align-items: start;
+    align-items: flex-start;
+  }
+
+  footer > * {
+    flex: 1 1 calc(33.333% - (var(--spacing-lg) * 2 / 3));
   }
 }
 
@@ -508,13 +516,15 @@ footer a {
    -------------------------------------------------------------------------- */
 
 form {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: var(--spacing-md);
   max-width: 36rem;
 }
 
 .campo {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: var(--spacing-sm);
 }
 
@@ -579,7 +589,7 @@ textarea[aria-invalid="true"] {
 }
 
 form .btn {
-  justify-self: start;
+  align-self: flex-start;
 }
 
 /* --------------------------------------------------------------------------
@@ -609,15 +619,21 @@ form .btn {
    -------------------------------------------------------------------------- */
 
 .producto-detalle {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: var(--spacing-lg);
 }
 
 @media (min-width: 768px) {
   .producto-detalle {
-    grid-template-columns: 1fr 1fr;
+    flex-direction: row;
     gap: var(--spacing-xl);
-    align-items: start;
+    align-items: flex-start;
+  }
+
+  .producto-detalle__imagen,
+  .producto-detalle__info {
+    flex: 1 1 0;
   }
 }
 
